@@ -53,11 +53,13 @@ public class GraphicalViewer extends JComponent implements Observer{
 	}
 	private void paintBlock(Graphics2D g2){
 		//System.out.println(world.getBlock().getXCoord());
-		final Area block = new Area(new Rectangle2D.Float(
-                (int)world.getBlock().getXCoord(), 600-(int)world.getBlock().getYCoord(),
-                	world.getBlock().getWidht(), world.getBlock().getHeight()));
+		for(WorldBlock block : world.getBlocks()){
+		final Area blockArea = new Area(new Rectangle2D.Float(
+                (int)block.getXCoord(), 600-(int)block.getYCoord(),
+                	block.getWidht(), block.getHeight()));
         g2.setPaint(new Color(0, 100, 30));
-        g2.fill(block);
+        g2.fill(blockArea);
+		}
 	}
 	
 }

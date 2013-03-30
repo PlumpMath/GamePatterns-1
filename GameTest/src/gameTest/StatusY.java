@@ -1,5 +1,5 @@
 package gameTest;
 
-public enum MovingStatus {
+public enum StatusY {
 	AIR, GROUND;
 }

@@ -3,6 +3,7 @@
  */
 package gameTest;
 
+
 /**
  * @author Myggan
  *
@@ -21,16 +22,16 @@ public abstract class WorldObject {
 		//this.position.setY(yCoord);
 	}
 	
-	public Placed intersect(WorldObject obj){
+	public Intersects intersect(WorldObject obj){
 		/*if(position.y+height > obj.position.y && position.x < obj.position.x+obj.width && position.x+width > obj.position.x){
 			return Placed.ABOVE;
 		}*/
 		if(position.y < obj.position.y+height && position.y + height > obj.position.y+height &&
 				position.x < obj.position.x+obj.width && position.x+width > obj.position.x){
-			return Placed.BELOW;
+			return Intersects.BELOW;
 		}
 		else{
-			return Placed.NOWHERE;
+			return Intersects.NOWHERE;
 		}
 	}
 	public int getWidht(){

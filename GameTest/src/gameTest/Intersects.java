@@ -1,5 +1,5 @@
 package gameTest;
 
-public enum Placed {
+public enum Intersects {
 	ABOVE, BELOW, LEFT, RIGHT, NOWHERE;
 }
