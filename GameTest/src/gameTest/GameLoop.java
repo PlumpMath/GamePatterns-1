@@ -11,7 +11,7 @@ public class GameLoop {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		final GameWorld world = new GameWorld();
+		final GameWorld world = new GameWorld(1300,700);
 		final Frame frame = new Frame(world);
         final Timer clockTimer;
 

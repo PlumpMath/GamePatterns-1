@@ -11,18 +11,21 @@ import java.util.ArrayList;
  *
  */
 public class GameWorld implements Observable {
-	ArrayList<Observer> observers;
-	Player player;
-	WorldBlock block;
-	ArrayList<WorldBlock> blocks;
-	public GameWorld(){
+	final private int width, height;
+	
+	private ArrayList<Observer> observers;
+	private Player player;
+	private ArrayList<WorldBlock> blocks;
+	
+	public GameWorld(int width, int height){
 		player = new Player(35,100,400,300);
 		observers = new ArrayList<Observer>();
 		blocks = new ArrayList<WorldBlock>();
-		blocks.add(new WorldBlock(1200,50,10,100));
-		blocks.add(new WorldBlock(300,50,10,500));
-		blocks.add(new WorldBlock(300,50,10,175));
-		//block = new WorldBlock(1200, 100, 10, 100);
+		blocks.add(new WorldBlock(1300,150,30,100));
+		blocks.add(new WorldBlock(300,40,10,500));
+		blocks.add(new WorldBlock(300,40,10,175));
+		this.width = width;
+		this.height = height;
 	}
 	
 	public void reset(){
@@ -31,6 +34,12 @@ public class GameWorld implements Observable {
 	}
 	public Player getPlayer(){
 		return player;
+	}
+	public int getWidth(){
+		return width;
+	}
+	public int getHeight(){
+		return height;
 	}
 	public ArrayList<WorldBlock> getBlocks(){
 		return blocks;
@@ -41,6 +50,7 @@ public class GameWorld implements Observable {
 		for( WorldBlock block : blocks){
 			player.handleMovingWorldObject(block);
 		}
+		player.KeepInsideWorldBorders(0, width);
 		notifyObservers();
 	}
 	

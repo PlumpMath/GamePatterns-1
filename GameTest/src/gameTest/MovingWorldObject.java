@@ -4,8 +4,8 @@ package gameTest;
 public abstract class MovingWorldObject extends WorldObject{
 	protected Velocity velocity;
 	protected Acceleration acceleration;
-	private StatusY statusY;
-	private StatusX statusX; 
+	protected StatusY statusY;
+	protected StatusX statusX; 
 	
 	public MovingWorldObject(int width, int height, int xCoord, int yCoord){
 		super(width, height, xCoord, yCoord);
@@ -17,7 +17,7 @@ public abstract class MovingWorldObject extends WorldObject{
 	
 	public void handleMovingWorldObject(WorldObject testObj){
 		
-		//System.out.println(intersect(testObj));
+		System.out.println(intersect(testObj));
 		if( statusY == StatusY.AIR || Intersects.BELOW != intersect(testObj)){
 			acceleration.y += acceleration.start;
 			velocity.y -= acceleration.y;	
@@ -29,7 +29,7 @@ public abstract class MovingWorldObject extends WorldObject{
 			velocity.y=0;
 			position.y = testObj.position.y+height;
 		}
-		System.out.println(statusX);
+		//System.out.println(statusX);
 		if(velocity.x > 1 && statusX == StatusX.RIGHTRELEASED && statusY != StatusY.AIR){
 			acceleration.x += acceleration.start;
 			velocity.x-= acceleration.x;
@@ -55,7 +55,7 @@ public abstract class MovingWorldObject extends WorldObject{
 	}
 	public void moveDown(){
 		statusY = StatusY.AIR;
-		position.y -=100;
+		position.y -=10;
 	}
 	public void moveLeft(){
 		statusX = StatusX.LEFTHOLD;

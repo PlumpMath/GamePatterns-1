@@ -23,9 +23,10 @@ public abstract class WorldObject {
 	}
 	
 	public Intersects intersect(WorldObject obj){
-		/*if(position.y+height > obj.position.y && position.x < obj.position.x+obj.width && position.x+width > obj.position.x){
-			return Placed.ABOVE;
-		}*/
+		if(position.y+height > obj.position.y && position.y < obj.position.y &&
+				position.x < obj.position.x+obj.width && position.x+width > obj.position.x){
+			return Intersects.ABOVE;
+		}
 		if(position.y < obj.position.y+height && position.y + height > obj.position.y+height &&
 				position.x < obj.position.x+obj.width && position.x+width > obj.position.x){
 			return Intersects.BELOW;

@@ -55,7 +55,7 @@ public class Frame extends JFrame{
     };
     
 
-	GameWorld world = new GameWorld();
+	GameWorld world;
 	GraphicalViewer paintedArea;
 	
 	public Frame(GameWorld world) {
@@ -85,7 +85,7 @@ public class Frame extends JFrame{
         paintedArea.getActionMap().put("leftReleased", leftStop);
         
         
-        this.setSize(1300,700);
+        this.setSize(world.getWidth(),world.getHeight());
         world.addObserver(paintedArea);
         this.add(paintedArea);
         //this.pack();
