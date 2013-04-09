@@ -47,7 +47,7 @@ public class GraphicalViewer extends JComponent implements Observer{
 	private void paintPlayer(Graphics2D g2){
 //		System.out.println(world.getPlayer().getYCoord());
 		final Area player = new Area( new Rectangle2D.Float((int)world.getPlayer().getXCoord(),600-(int)world.getPlayer().getYCoord(),
-				world.getPlayer().getWidht(),world.getPlayer().getHeight()));
+				world.getPlayer().getWidth(),world.getPlayer().getHeight()));
 		g2.setPaint(new Color(100,30,50));
 		g2.fill(player);
 	}
@@ -56,7 +56,7 @@ public class GraphicalViewer extends JComponent implements Observer{
 		for(WorldBlock block : world.getBlocks()){
 		final Area blockArea = new Area(new Rectangle2D.Float(
                 (int)block.getXCoord(), 600-(int)block.getYCoord(),
-                	block.getWidht(), block.getHeight()));
+                	block.getWidth(), block.getHeight()));
         g2.setPaint(new Color(0, 100, 30));
         g2.fill(blockArea);
 		}

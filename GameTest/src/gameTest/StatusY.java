@@ -1,5 +1,5 @@
 package gameTest;
 
 public enum StatusY {
-	AIR, GROUND;
+	JUMP, FALL, GROUND;
 }

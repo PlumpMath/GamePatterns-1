@@ -55,8 +55,9 @@ public class Frame extends JFrame{
     };
     
 
-	GameWorld world;
-	GraphicalViewer paintedArea;
+	private GameWorld world;
+	private GraphicalViewer paintedArea;
+	private GameState gameState;
 	
 	public Frame(GameWorld world) {
         super("GameTest");
@@ -99,7 +100,8 @@ public class Frame extends JFrame{
         this.setVisible(true);
 		
 	}
-
+	
+	
 	private void createMenu() {
         final JMenuBar menuBar = new JMenuBar();
 
